@@ -3,6 +3,7 @@ services:
     server:
         container_name: async-github-gist
         image: node:alpine
+        working_dir: /var/www/html
         volumes:
           - .:/var/www/html
         tty: true
