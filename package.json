@@ -1,0 +1,21 @@
+{
+	"name": "async-github-gist",
+	"description": "Small library for asynchronous Github gists loading.",
+	"keywords": [
+		"github",
+        "gist",
+        "lazyloading",
+        "async"
+	],
+	"homepage": "https://github.com/Machy8/async-github-gist",
+	"version": "1.0.0",
+	"license": "BSD-3-Clause",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Machy8/async-github-gist.git"
+	},
+	"author": {
+		"name": "Vladimír Macháček",
+		"email": "8machy@seznam.cz"
+	}
+}
