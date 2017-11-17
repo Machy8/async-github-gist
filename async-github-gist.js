@@ -12,14 +12,14 @@
 
 
 	/**
-	 * @param {string} gistUrl
+	 * @param {string} gistId
 	 * @returns {Element}
 	 */
-	function createGistScriptElement(gistUrl)
+	function createGistScriptElement(gistId)
 	{
 		var gistScriptElement = document.createElement('script');
-		gistScriptElement.setAttribute("type", scriptElementType);
-		gistScriptElement.setAttribute("src", gistUrl);
+		gistScriptElement.setAttribute('type', scriptElementType);
+		gistScriptElement.setAttribute('src', githubGistsUrl + '/' + gistId + '.js');
 		return gistScriptElement
 	}
 
@@ -34,9 +34,7 @@
 			gistsLoadingElements = document.querySelectorAll('[data-github-gist]');
 
 		document.write = function (content) {
-			document
-				.querySelector('[' + dataSelectorName +'="' + gistId +'"]')
-				.insertAdjacentHTML('beforeBegin', content);
+			document.currentScript.insertAdjacentHTML('beforeBegin', content);
 		};
 
 		for (gistLoadingElementIndex in gistsLoadingElements) {
@@ -47,11 +45,9 @@
 			}
 
 			gistId = gistLoadingElement.getAttribute(dataSelectorName);
-			gistScriptElement = createGistScriptElement(
-				githubGistsUrl + '/' + gistId + '.js'
-			);
+			gistScriptElement = createGistScriptElement(gistId);
 
-			document.getElementsByTagName("head")[0].appendChild(gistScriptElement);
+			document.querySelector('[' + dataSelectorName +'="' + gistId +'"]').appendChild(gistScriptElement);
 		}
 	}
 
